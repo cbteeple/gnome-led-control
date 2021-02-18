@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 85.68 80.665588"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg28"
+   width="85.68"
+   height="80.665588">
+  <metadata
+     id="metadata34">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Shopping Morning</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs32" />
+  <title
+     id="title2">Shopping Morning</title>
+  <g
+     data-name="Capa 2"
+     id="g26"
+     transform="translate(-7.6044097,-9.8644097)">
+    <path
+       d="m 59.05,45.73 a 1.75,1.75 0 0 1 -1.22,-0.5 11.48,11.48 0 0 0 -8.2,-3.4 1.72,1.72 0 0 1 0,-3.44 15,15 0 0 1 10.64,4.4 1.73,1.73 0 0 1 0,2.44 1.75,1.75 0 0 1 -1.22,0.5 z"
+       id="path4" />
+    <rect
+       x="41.439999"
+       y="73.07"
+       width="17.24"
+       height="3.9000001"
+       id="rect6" />
+    <rect
+       x="41.439999"
+       y="79.07"
+       width="17.24"
+       height="3.9000001"
+       id="rect8" />
+    <path
+       d="M 50,90.53 A 11.17,11.17 0 0 1 38.84,79.36 v -2.93 c 0,-2.79 -1.47,-5.67 -4.5,-8.78 a 21.82,21.82 0 1 1 31.32,0 c -3,3.11 -4.49,6 -4.49,8.78 v 2.93 A 11.18,11.18 0 0 1 50,90.53 Z m 0,-56 a 17.91,17.91 0 0 0 -12.86,30.4 c 3.77,3.88 5.6,7.64 5.6,11.5 v 2.93 a 7.26,7.26 0 1 0 14.52,0 v -2.93 c 0,-3.86 1.83,-7.62 5.6,-11.5 A 17.91,17.91 0 0 0 50,34.56 Z"
+       id="path10" />
+    <path
+       d="m 21.12,83.09 a 1.93,1.93 0 0 1 -1.38,-0.58 2,2 0 0 1 0,-2.76 L 27.9,71.6 a 2,2 0 1 1 2.76,2.76 l -8.16,8.15 a 1.92,1.92 0 0 1 -1.38,0.58 z"
+       id="path12" />
+    <path
+       d="M 20.69,54.21 H 9.16 a 2,2 0 0 1 0,-3.9 h 11.53 a 2,2 0 1 1 0,3.9 z"
+       id="path14" />
+    <path
+       d="M 29.28,33.49 A 2,2 0 0 1 27.9,32.92 L 19.74,24.76 A 2,2 0 0 1 22.5,22 l 8.16,8.16 a 2,2 0 0 1 -1.38,3.33 z"
+       id="path16" />
+    <path
+       d="M 50,24.91 A 2,2 0 0 1 48,22.96 V 11.42 a 2,2 0 0 1 3.9,0 V 23 A 2,2 0 0 1 50,24.91 Z"
+       id="path18" />
+    <path
+       d="M 70.72,33.49 A 2,2 0 0 1 69.34,30.16 L 77.5,22 a 2,2 0 0 1 2.76,2.76 l -8.16,8.16 a 2,2 0 0 1 -1.38,0.57 z"
+       id="path20" />
+    <path
+       d="M 90.84,54.21 H 79.31 a 2,2 0 0 1 0,-3.9 h 11.53 a 2,2 0 1 1 0,3.9 z"
+       id="path22" />
+    <path
+       d="M 78.88,83.09 A 1.92,1.92 0 0 1 77.5,82.51 L 69.34,74.36 A 2,2 0 1 1 72.1,71.6 l 8.16,8.15 a 2,2 0 0 1 0,2.76 1.93,1.93 0 0 1 -1.38,0.58 z"
+       id="path24" />
+  </g>
+</svg>
