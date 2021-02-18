@@ -73,20 +73,20 @@ function _showHello(text_in) {
 
 
 function _start_LED(){
-    let bash_script = '/home/teepsmart/light_fun_on.sh';
+    let bash_script = Me.dir.get_path()+'/scripts/light_fun_on.sh';
     Util.spawnCommandLine("bash "+bash_script+' '+USBdev);
 
 }
 
 
 function _stop_LED(){
-    let bash_script = '/home/teepsmart/light_fun_off.sh';
+    let bash_script = Me.dir.get_path()+'/scripts/light_fun_off.sh';
     Util.spawnCommandLine("bash "+bash_script+' '+USBdev);
 
 }
 
 function _set_LED(num){
-    let bash_script = '/home/teepsmart/light_fun_set.sh';
+    let bash_script = Me.dir.get_path()+'/scripts/light_fun_set.sh';
     let bash_str="bash "+bash_script+' '+USBdev + " " + num
     Util.spawnCommandLine(bash_str);
 
@@ -102,7 +102,7 @@ function _example_python(){
 
 
 function _wait_LED(){
-    let bash_script = '/home/teepsmart/light_fun_watcher.sh';
+    let bash_script = Me.dir.get_path()+'/scripts/light_fun_watcher.sh';
     let bash_str="bash "+bash_script+' '+USBdev
     Util.spawnCommandLine(bash_str);
 
