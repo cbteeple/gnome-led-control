@@ -101,6 +101,16 @@ function _example_python(){
 }
 
 
+function _wait_LED(){
+    let bash_script = '/home/teepsmart/light_fun_watcher.sh';
+    let bash_str="bash "+bash_script+' '+USBdev
+    Util.spawnCommandLine(bash_str);
+
+    /*_showHello(bash_str) */
+
+}
+
+
 
 
 const MyPopup = GObject.registerClass(
@@ -146,12 +156,22 @@ class MyPopup extends PanelMenu.Button {
     });
     */
 
+    let popupImageMenuItem3 = new PopupMenu.PopupImageMenuItem(
+      'Dim On Lock (Restart Service)',
+      'media-playback-stop-symbolic',
+    );
+    this.menu.addMenuItem(popupImageMenuItem3);
+    popupImageMenuItem3.connect('activate',_wait_LED);
+
+    this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+
+
     // sub menu
     let subItem = new PopupMenu.PopupSubMenuMenuItem('Set Animation');
     this.menu.addMenuItem(subItem);
 
 
-        this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+    this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
     for (var i = 0; i < 19; i++) {
         let popupImageMenuItem0 = new PopupMenu.PopupMenuItem(
@@ -200,6 +220,8 @@ class MyPopup extends PanelMenu.Button {
 
 
 function init () {
+
+    _wait_LED()
 
 }
 
