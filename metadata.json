@@ -3,7 +3,7 @@
   "description": "Control the case LEDs",
   "uuid": "ledcontrol@cbteeple.com",
   "shell-version": [
-    "3.36"
+    "3.36", "3.38"
   ],
   "url" : "",
   "version" : 1.1

@@ -117,6 +117,9 @@ function _example_python(){
 function _wait_LED(){
     let bash_script = Me.dir.get_path()+'/scripts/light_fun_watcher.sh';
     let bash_str="bash "+bash_script+' '+USBdev
+
+    Util.spawnCommandLine("pkill -f light_fun_watcher.sh")
+    Util.spawnCommandLine('pkill -f "gdbus monitor"')
     Util.spawnCommandLine(bash_str);
 
     /*_showHello(bash_str) */
