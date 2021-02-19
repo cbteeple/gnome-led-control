@@ -114,15 +114,28 @@ function _example_python(){
 }
 
 
-function _wait_LED(){
+function _wait_LED_start(on){
     let bash_script = Me.dir.get_path()+'/scripts/light_fun_watcher.sh';
     let bash_str="bash "+bash_script+' '+USBdev
 
     Util.spawnCommandLine("pkill -f light_fun_watcher.sh")
     Util.spawnCommandLine('pkill -f "gdbus monitor"')
-    Util.spawnCommandLine(bash_str);
 
-    /*_showHello(bash_str) */
+    if (on){
+        Util.spawnCommandLine(bash_str);
+    }
+}
+
+function _wait_LED(toggle){
+    
+    if (toggle.state){
+        _wait_LED_start(true)
+        //_showHello('test')
+    }
+    else{
+        _wait_LED_start(false)
+        //_showHello('off')
+    }
 
 }
 
@@ -144,40 +157,27 @@ class MyPopup extends PanelMenu.Button {
 
     this.add_child(icon);
 
-    /*
 
-    let pmItem = new PopupMenu.PopupMenuItem('Normal Menu Item');
-    pmItem.add_child(new St.Label({text : 'Label added to the end'}));
-    this.menu.addMenuItem(pmItem);
 
-    pmItem.connect('activate', () => {
-      log('clicked');
-    });
+    let subItem4 = new PopupMenu.PopupSubMenuMenuItem('Extra...');
+    this.menu.addMenuItem(subItem4);
 
-    this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-
-    this.menu.addMenuItem(
-      new PopupMenu.PopupMenuItem(
-        "User cannot click on this item",
-        {reactive : false},
-      )
-    );
-
-    this.menu.connect('open-state-changed', (menu, open) => {
-      if (open) {
-        log('opened');
-      } else {
-        log('closed');
-      }
-    });
-    */
 
     let popupImageMenuItem3 = new PopupMenu.PopupImageMenuItem(
       'Dim On Lock (Restart Service)',
-      'media-playback-stop-symbolic',
+      'system-reboot-symbolic',
     );
-    this.menu.addMenuItem(popupImageMenuItem3);
+    subItem4.menu.addMenuItem(popupImageMenuItem3);
     popupImageMenuItem3.connect('activate',_wait_LED);
+
+
+    
+    let switchmenuitem = new PopupMenu.PopupSwitchMenuItem('Dim On Lock', true);
+    this.menu.addMenuItem(switchmenuitem);
+    switchmenuitem.connect('toggled',_wait_LED);
+    
+    
+
 
     this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
@@ -253,59 +253,10 @@ class MyPopup extends PanelMenu.Button {
 
 function init () {
 
-    _wait_LED()
+    _wait_LED_start(true)
 
 }
 
-
-/*
-function init () {
-    // Create a Button with "Hello World" text
-    panelButton = new St.Bin({
-        style_class : "panel-button",
-        reactive: true,
-        can_focus: true,
-        x_fill: true,
-        y_fill: false,
-        track_hover: true
-    });
-
-    let panelButtonText = new St.Label({
-        text : "Hello World",
-        y_align: Clutter.ActorAlign.CENTER,
-    });
-
-
-    
-    let gicon = Gio.icon_new_for_string(Me.path + "/icons/led-symbolic.svg");
-    icon = new St.Icon({ gicon });
-    icon.set_icon_size(20);
-
-
-    panelButton.set_child(icon);
-
-    panelButton.connect('button-press-event', _showHello);
-}
-*/
-
-/*
-
-function init () {
-	let widgetBoxLayout = new St.BoxLayout();
-
-	let iconPath = `${Me.path}/icons/led-icon-symbolic.svg`;
-	// just for debug if path is correct
-	log(`${Me.metadata.name}: Icon path=${iconPath}`);
-	let gicon = Gio.icon_new_for_string(`${iconPath}`);
-	let icon = new St.Icon({ gicon: gicon, style_class: 'system-status-icon', icon_size: 16 });
-
-	// this works for build-in icon:
-	//let icon = new St.Icon({ icon_name: 'system-search-symbolic', style_class: 'system-status-icon'});
-
-	widgetBoxLayout.add(icon);
-	widgetBoxLayout.add(this.widgetText);
-}
-*/
 
 function enable () {
     // Add the button to the panel
