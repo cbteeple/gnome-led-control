@@ -107,6 +107,25 @@ function _set_Bright(num){
 }
 
 
+function _set_Time(num){
+    let bash_script = Me.dir.get_path()+'/scripts/light_fun_time.sh';
+    let bash_str="bash "+bash_script+' '+USBdev + " " + num
+    Util.spawnCommandLine(bash_str);
+
+    /*_showHello(bash_str) */
+
+}
+
+function _set_Pulse(num){
+    let bash_script = Me.dir.get_path()+'/scripts/light_fun_pulse.sh';
+    let bash_str="bash "+bash_script+' '+USBdev + " " + num
+    Util.spawnCommandLine(bash_str);
+
+    /*_showHello(bash_str) */
+
+}
+
+
 function _example_python(){
     let python_script = '~/light_fun_off.py';
     Util.spawnCommandLine("python " + python_script);
@@ -159,22 +178,46 @@ class MyPopup extends PanelMenu.Button {
 
 
 
-    let subItem4 = new PopupMenu.PopupSubMenuMenuItem('Extra...');
-    this.menu.addMenuItem(subItem4);
-
-
-    let popupImageMenuItem3 = new PopupMenu.PopupImageMenuItem(
-      'Dim On Lock (Restart Service)',
-      'system-reboot-symbolic',
-    );
-    subItem4.menu.addMenuItem(popupImageMenuItem3);
-    popupImageMenuItem3.connect('activate',_wait_LED);
-
-
-    
     let switchmenuitem = new PopupMenu.PopupSwitchMenuItem('Dim On Lock', true);
     this.menu.addMenuItem(switchmenuitem);
     switchmenuitem.connect('toggled',_wait_LED);
+
+
+
+    let subItem4 = new PopupMenu.PopupSubMenuMenuItem('Set Transition Time');
+    this.menu.addMenuItem(subItem4);
+
+
+    for (var i = 0; i <= 50; i=i+10) {
+        let popupImageMenuItem0 = new PopupMenu.PopupMenuItem(
+          i.toString()+" ms",
+        );
+
+        let inew = i*1;
+
+        let istr = inew.toString();
+        subItem4.menu.addMenuItem(popupImageMenuItem0);
+        popupImageMenuItem0.connect('activate',function(){ _set_Time(istr);});
+    }
+
+
+
+    let subItem5 = new PopupMenu.PopupSubMenuMenuItem('Set Pulse Time');
+    this.menu.addMenuItem(subItem5);
+
+
+    for (var i = 0; i <= 50; i=i+10) {
+        let popupImageMenuItem0 = new PopupMenu.PopupMenuItem(
+          i.toString()+" ms",
+        );
+
+        let inew = i*1;
+
+        let istr = inew.toString();
+        subItem5.menu.addMenuItem(popupImageMenuItem0);
+        popupImageMenuItem0.connect('activate',function(){ _set_Pulse(istr);});
+    }
+
     
     
 
