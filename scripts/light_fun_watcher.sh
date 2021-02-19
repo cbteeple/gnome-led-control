@@ -1,18 +1,19 @@
 #! /bin/bash
 
 function onScreenLock() {
-	bash ~/light_fun_off.sh $1
-	bash ~/light_fun_set.sh $1 8
-	bash ~/light_fun_bright.sh $1 0
-	bash ~/light_fun_on.sh $1
+	bash light_fun_set.sh $1 8
+	bash light_fun_bright.sh $1 0
     #bash ~/light_fun_off.sh $1
 }
 
 function onScreenUnlock() {
-	bash ~/light_fun_off.sh $1
-	bash ~/light_fun_bright.sh $1 7
-	bash ~/light_fun_set.sh $1 18
-    bash ~/light_fun_on.sh $1
+	bash light_fun_set.sh $1 18
+	bash light_fun_bright.sh $1 7
+	bash light_fun_on.sh $1
+	#sleep 0.5
+	#bash ~/light_fun_set.sh $1 18
+	#sleep 0.5
+    #bash ~/light_fun_on.sh $1
 }
 
 #dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" | 

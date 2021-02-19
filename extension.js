@@ -43,7 +43,9 @@ let shows =["Red Solid",
     "Chill",
     "Rainbow Rave",
     "Rainbow Chill",
-    ]
+    ];
+
+let bright = ["10%", "20%", "30%", "40%", "50%", "60%","70%","80%","90%","100%"];
 
 
 function _hideHello() {
@@ -93,6 +95,17 @@ function _set_LED(num){
     /*_showHello(bash_str) */
 
 }
+
+
+function _set_Bright(num){
+    let bash_script = Me.dir.get_path()+'/scripts/light_fun_bright.sh';
+    let bash_str="bash "+bash_script+' '+USBdev + " " + num
+    Util.spawnCommandLine(bash_str);
+
+    /*_showHello(bash_str) */
+
+}
+
 
 function _example_python(){
     let python_script = '~/light_fun_off.py';
@@ -171,8 +184,6 @@ class MyPopup extends PanelMenu.Button {
     this.menu.addMenuItem(subItem);
 
 
-    this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-
     for (var i = 0; i < 19; i++) {
         let popupImageMenuItem0 = new PopupMenu.PopupMenuItem(
           shows[i],
@@ -183,6 +194,24 @@ class MyPopup extends PanelMenu.Button {
         let istr = inew.toString();
         subItem.menu.addMenuItem(popupImageMenuItem0);
         popupImageMenuItem0.connect('activate',function(){ _set_LED(istr);});
+    }
+
+
+    // sub menu for brightness
+    let subItem2 = new PopupMenu.PopupSubMenuMenuItem('Set Brightness');
+    this.menu.addMenuItem(subItem2);
+
+
+    for (var i = 0; i < 10; i++) {
+        let popupImageMenuItem0 = new PopupMenu.PopupMenuItem(
+          bright[i],
+        );
+
+        let inew = i*1;
+
+        let istr = inew.toString();
+        subItem2.menu.addMenuItem(popupImageMenuItem0);
+        popupImageMenuItem0.connect('activate',function(){ _set_Bright(istr);});
     }
 
     this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
