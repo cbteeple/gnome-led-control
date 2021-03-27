@@ -126,6 +126,16 @@ function _set_Pulse(num){
 }
 
 
+function _set_Cycle(num){
+    let bash_script = Me.dir.get_path()+'/scripts/light_fun_cycle.sh';
+    let bash_str="bash "+bash_script+' '+USBdev + " " + num
+    Util.spawnCommandLine(bash_str);
+
+    /*_showHello(bash_str) */
+
+}
+
+
 function _example_python(){
     let python_script = '~/light_fun_off.py';
     Util.spawnCommandLine("python " + python_script);
@@ -218,6 +228,25 @@ class MyPopup extends PanelMenu.Button {
         popupImageMenuItem0.connect('activate',function(){ _set_Pulse(istr);});
     }
 
+
+
+
+    let subItem6 = new PopupMenu.PopupSubMenuMenuItem('Set Color Cycle Time');
+    this.menu.addMenuItem(subItem6);
+
+
+    for (var i = 0; i <= 50; i=i+5) {
+        let popupImageMenuItem0 = new PopupMenu.PopupMenuItem(
+          i.toString()+" ms",
+        );
+
+        let inew = i*1;
+
+        let istr = inew.toString();
+        subItem6.menu.addMenuItem(popupImageMenuItem0);
+        popupImageMenuItem0.connect('activate',function(){ _set_Cycle(istr);});
+    }
+
     
     
 
@@ -253,7 +282,7 @@ class MyPopup extends PanelMenu.Button {
           bright[i],
         );
 
-        let inew = i*1;
+        let inew = (i+1)*10;
 
         let istr = inew.toString();
         subItem2.menu.addMenuItem(popupImageMenuItem0);
